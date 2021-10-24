@@ -37,7 +37,6 @@ public class _88_Merge_Sorted_Array {
                 timDuocK = true;
                 for (int i = m - 1; i >= k; i--) {
                     nums1[i + 1] = nums1[i];
-
                 }
                 nums1[k] = x;
                 break;
