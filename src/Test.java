@@ -1,7 +1,3 @@
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +11,14 @@ public class Test {
         s.replace("l", "L");
         System.out.println(list);
 
+    }
+
+    abstract class Hihi  {
+        private String hello;
+
+        protected Hihi(String hello) {
+            this.hello = hello;
+        }
     }
 
 }
