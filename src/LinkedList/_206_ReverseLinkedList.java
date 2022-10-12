@@ -24,4 +24,23 @@ public class _206_ReverseLinkedList {
         }
         return prev;
     }
+
+    public Node reverseListRecursion(Node head) {
+        if(head == null) {
+            return null;
+        }
+
+        // node cuối cùng or chỉ có 1 node
+        if(head.next == null) {
+            return head;
+        }
+
+        Node newHeadNode = reverseListRecursion(head.next);
+
+        head.next.next = head;
+        head.next = null;
+
+        // return lại head mới sau mỗi lần đệ quy
+        return newHeadNode;
+    }
 }
