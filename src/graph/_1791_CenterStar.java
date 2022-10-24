@@ -1,8 +1,5 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _1791_CenterStar {
     /*
         Cho 1 đồ thị sao bao gồm n đỉnh
