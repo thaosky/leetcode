@@ -1,6 +1,6 @@
 package graph;
 
-public class _200_NumberOfIsland {
+public class _200_NumberOfIsland_Recursion {
     static int numIslands(char[][] grid) {
         int count = 0;
 
