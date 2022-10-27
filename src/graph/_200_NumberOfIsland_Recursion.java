@@ -4,7 +4,6 @@ public class _200_NumberOfIsland_Recursion {
     static int numIslands(char[][] grid) {
         int count = 0;
 
-        // Duyệt qua matrix
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid[x].length; y++) {
                 if (grid[x][y] == '1') {
@@ -28,6 +27,6 @@ public class _200_NumberOfIsland_Recursion {
 
     public static void main(String[] args) {
         char[][] graph = {{'1'}, {'1'}};
-        numIslands(graph);
+        System.out.println(numIslands(graph));
     }
 }

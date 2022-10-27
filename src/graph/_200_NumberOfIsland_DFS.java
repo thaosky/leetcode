@@ -1,51 +1,47 @@
 package graph;
 
-import java.util.ArrayList;
+import java.awt.*;
+import java.util.Arrays;
 import java.util.Stack;
 
 public class _200_NumberOfIsland_DFS {
-    ArrayList
-    static int numIslands(char[][] grid) {
-        int count = 0;
-        Stack<Integer> stack = new Stack<>();
+    private static int numsStack = 0;
 
-        int m = grid.length;
-        int n = grid[0].length;
-        boolean[] visited = new boolean[n+1];
-
-        visited[0] = true;
-        stack.push(0);
-
+    static void dfs(char[][] grid, int x, int y) {
+        Stack<Point> stack = new Stack<>();
+        numsStack++;
+        stack.push(new Point(x, y));
         while (!stack.isEmpty()) {
-            for (int i = 0; i < n; i++) {
+            Point point = stack.pop();
+            if (point.x < 0 || point.y < 0 || point.x > grid.length - 1 || point.y > grid[0].length - 1 || grid[point.x][point.y] == '0')
+                continue;
+            grid[point.x][point.y] = '0';
 
-            }
+            stack.push(new Point(point.x + 1, point.y));
+            stack.push(new Point(point.x - 1, point.y));
+            stack.push(new Point(point.x, point.y + 1));
+            stack.push(new Point(point.x, point.y - 1));
         }
+    }
 
-        // Duyệt qua matrix
+    public static int numIslands(char[][] grid) {
+        int count = 0;
+
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid[x].length; y++) {
                 if (grid[x][y] == '1') {
                     count++;
-                    DFS(grid, x, y);
+                    dfs(grid, x, y);
                 }
-
             }
         }
         return count;
     }
 
-    static void DFS(char[][] grid, int x, int y) {
-        if (x < 0 || y < 0 || x >= grid.length || y >= grid[x].length || grid[x][y] == '0') return;
-        grid[x][y] = '0';
-        DFS(grid, x + 1, y);
-        DFS(grid, x - 1, y);
-        DFS(grid, x, y + 1);
-        DFS(grid, x, y - 1);
-    }
-
     public static void main(String[] args) {
         char[][] graph = {{'1'}, {'1'}};
-        numIslands(graph);
+        System.out.println(numIslands(graph));
+        System.out.println(Arrays.deepToString(graph));
+        System.out.println("Số stack đã tạo "+ numsStack);
     }
 }
