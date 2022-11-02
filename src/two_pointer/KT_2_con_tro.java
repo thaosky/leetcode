@@ -1,3 +1,5 @@
+package two_pointer;
+
 /**
  * Con trỏ thứ nhất - i đơn giản là duyệt từ đầu đến cuối mảng để tìm phần tử "ĐÚNG"
  * Con trỏ thứ 2 - k: Luôn là phần tử đúng cuối cùng, chỉ nhảy khi có phần tử đúng

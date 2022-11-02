@@ -15,7 +15,7 @@ public class SW_FindExcalibur {
      */
     static int findExcalibur(char[][] grid, int x0, int y0) {
         /*
-            Phân tích: Để đi từ  O -> S => từ O đi qua các điểm A, B, C. Từ 1 trong 3 điểm ABC đến S
+            Để đi từ  O -> S => từ O đi qua các điểm A, B, C. Từ 1 trong 3 điểm ABC đến S
             result = min(O qua ABC) + min(AS, BS, CS)
             O qua ABC có 6 trường hợp sau:
                 OA + AB + BC
