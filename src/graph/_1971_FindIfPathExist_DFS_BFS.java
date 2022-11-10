@@ -34,6 +34,33 @@ public class _1971_FindIfPathExist_DFS_BFS {
             for (int v : graph.get(u)) {
                 if (!visited[v]) {
                     stack.add(v);
+                    visited[v] = true;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean validPathBFS(int n, int[][] edges, int s, int t) {
+        // Chuyển từ danh sách cạnh sang danh sách kề
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        for (int[] edge : edges) {
+            int a = edge[0], b = edge[1];
+            graph.computeIfAbsent(a, val -> new ArrayList<>()).add(b);
+            graph.computeIfAbsent(b, val -> new ArrayList<>()).add(a);
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        boolean[] visited = new boolean[n];
+        queue.add(s);
+        visited[s] = true;
+
+        while (!queue.isEmpty()) {
+            int u = queue.poll();
+            if (t == u) return true;
+            for (int edge: graph.get(u)) {
+                if (!visited[edge]) {
+                    queue.add(edge);
+                    visited[edge] = true;
                 }
             }
         }

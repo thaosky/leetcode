@@ -8,8 +8,6 @@ public class _1971_FindIfPathExist_Recursion {
      * @param edges danh sách kề
      * @return có đường đi từ s -> t không
      */
-
-    // Dùng DFS
     public boolean validPath(int n, int[][] edges, int s, int t) {
         if (s == t) return true;
         HashMap<Integer, List<Integer>> adj = new HashMap<>();
