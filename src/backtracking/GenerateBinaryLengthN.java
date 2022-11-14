@@ -8,22 +8,25 @@ import java.util.Arrays;
  * => Quay lui xâu nhị phân có độ dài N
  */
 public class GenerateBinaryLengthN {
-    static int N = 3;
-    static int[] X = new int[4];
+    static int N = 2;
 
-    //
-    static void solution(int i) {
-        for (int j = 0; j <= 1; j++) { //Bit chỉ gồm 2 giá trị 0 và 1
-            X[i] = j;
-            if (i == N) {
-                System.out.println(Arrays.toString(X));
-            } else {
-                solution(i + 1);
-            }
+    static int[] cauHinh = new int[N + 1];
+
+    static void inCauHinh(int[] x) {
+        System.out.println(Arrays.toString(x));
+    }
+
+    static void Try(int i) {
+        for (int j = 0; j <= 1; j++) {
+            cauHinh[i] = j;
+            if (i == N)
+                inCauHinh(cauHinh);
+            else
+                Try(i + 1);
         }
     }
 
     public static void main(String[] args) {
-        solution(0);
+        Try(0);
     }
 }
